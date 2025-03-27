@@ -35,6 +35,31 @@ This is a sophisticated network monitoring and DDoS detection application built 
   - Interactive anomaly table
   - Comprehensive logging system
 
+## System Architecture
+
+```mermaid
+flowchart TD
+    A[Start Network Monitor] --> B{User Action}
+    
+    B --> |Start Monitoring| C[Initialize Network Monitoring]
+    B --> |Exit| J[Close Application]
+    
+    C --> D[Collect Network Metrics]
+    D --> E{Anomaly Detection}
+    
+    E --> |Suspicious Traffic| F[Trigger ML Models]
+    F --> G[Analyze IP Reputation]
+    
+    G --> |Potential Threat| H[Block Suspicious IPs]
+    G --> |Normal Traffic| D
+    
+    E --> |Normal Traffic| D
+    
+    H --> I[Log Anomaly Details]
+    I --> D
+    
+    J --> K[End]
+```
 ## 🛠 Prerequisites
 
 - Python 3.8+
