@@ -1,0 +1,6 @@
+numpy
+psutil
+scikit-learn
+pyqtgraph
+PyQt5
+ipaddress
