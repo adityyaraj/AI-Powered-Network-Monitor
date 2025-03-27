@@ -1,4 +1,4 @@
-# 🌐 AI-Powered Network Monitor with DDoS Detection
+# 🌐 AI-Driven Network Monitor with DDoS Detection
 
 ## Overview
 
