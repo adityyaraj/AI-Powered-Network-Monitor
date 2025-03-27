@@ -117,9 +117,3 @@ This tool is for educational and authorized network monitoring purposes only. Mi
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📧 Contact
-
-Your Name - [your.email@example.com](mailto:your.email@example.com)
-
-Project Link: [https://github.com/yourusername/network-monitor](https://github.com/yourusername/network-monitor)
