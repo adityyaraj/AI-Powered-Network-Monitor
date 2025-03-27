@@ -70,6 +70,39 @@ ipaddress
 python network_monitor.py
 ```
 
+##System Flow
+stateDiagram-v2
+    state "NetworkMonitorGUI" as GUI {
+        [*] --> Idle
+        Idle --> Monitoring : Start Monitoring
+        Monitoring --> Stopped : Stop Monitoring
+        Monitoring --> Reset : Reset
+        Stopped --> Idle
+    }
+
+    state "DDoSDetector" as Detector {
+        [*] --> Monitoring
+        Monitoring --> AnomalyDetection
+        AnomalyDetection --> IPBlocking : Suspicious IPs Detected
+        IPBlocking --> Monitoring
+    }
+
+    state "SignalRelay" as Signals {
+        LogSignal
+        AlertSignal
+    }
+
+    state "IPAnalyzer" as Analyzer {
+        CheckPrivateIP
+        GeolocateIP
+        CheckIPReputation
+    }
+
+    GUI --> Detector : Starts Monitoring
+    Detector --> Signals : Emit Logs/Alerts
+    Detector --> Analyzer : Analyze IPs
+    Analyzer --> Detector : IP Reputation Results
+
 ### Application Controls
 - **Start Monitoring**: Begin network traffic analysis
 - **Stop Monitoring**: Pause network monitoring
